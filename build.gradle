@@ -22,13 +22,26 @@ project(':engine') {
 }
 
 buildscript {
-    repositories {
-        maven {
-            url 'http://localhost:6081/artifactory/plugins-release'
-            
-        }
-        
+  repositories {
+    maven {
+      url "https://plugins.gradle.org/m2/"
     }
+  }
+  dependencies {
+    classpath "org.jfrog.buildinfo:build-info-extractor-gradle:3.1.0"
+  }
+}
+
+//apply plugin: "com.jfrog.artifactory"
+
+//buildscript {
+//    repositories {
+//        maven {
+//            url 'http://localhost:6081/artifactory/plugins-release'
+//           
+//        }
+//        
+//    }
 //    dependencies {
 //        //Check for the latest version here: http://plugins.gradle.org/plugin/com.jfrog.artifactory
 //        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:3.0.3"

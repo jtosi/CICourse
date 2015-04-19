@@ -1,0 +1,18 @@
+subprojects {
+    apply plugin: 'java'
+    group = 'com.devjam.training'
+    version = '1.0'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+	compile 'javax.xml.ws:jaxws-api:2.2.6', 'javax.ws.rs:javax.ws.rs-api:2.0.1'
+   testCompile 'junit:junit-dep:4.7', 'com.restfuse:com.eclipsesource.restfuse:1.0.0' 
+	}
+}
+
+project(':engine') {
+    dependencies {
+        compile project(':model')
+    }
+}

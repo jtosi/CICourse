@@ -19,8 +19,8 @@ public class InventoryCheckTest {
 	@Context
     private Response response; // will be injected after every request
 	
-	@Rule
-	public Destination destination = new Destination( "http://localhost"); 
+//	@Rule
+//	public Destination destination = new Destination( "http://localhost"); 
 	
 
 	 @HttpTest( method = Method.GET, path = "/" )

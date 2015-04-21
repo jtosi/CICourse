@@ -2,8 +2,20 @@ task wrapper(type: Wrapper) {
     gradleVersion = '2.3'
 }
 
+apply plugin: 'war'
+
+    repositories {
+       mavenCentral()
+    }
+
+    dependencies {
+        compile project(":model")
+        runtime 'javax.servlet:jstl:1.1.2'
+        }
+
 subprojects {
     apply plugin: 'java'
+    apply plugin: 'jacoco'
     group = 'com.devjam.training'
     version = '1.0'
     repositories {
@@ -32,26 +44,12 @@ buildscript {
   }
 }
 
-//apply plugin: "com.jfrog.artifactory"
-
-//buildscript {
-//    repositories {
-//        maven {
-//            url 'http://localhost:6081/artifactory/plugins-release'
-//           
-//        }
-//        
-//    }
-//    dependencies {
-//        //Check for the latest version here: http://plugins.gradle.org/plugin/com.jfrog.artifactory
-//        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:3.0.3"
-//    }
-//}
-
+/* THIS ONE KEEP
 allprojects {
     apply plugin: "com.jfrog.artifactory"
 }
-
+*/
+/*
 artifactory {
     contextUrl = "${artifactory_contextUrl}"   //The base Artifactory URL if not overridden by the publisher/resolver
     publish {
@@ -68,4 +66,4 @@ artifactory {
             
         }
     }
-}
+}*/
